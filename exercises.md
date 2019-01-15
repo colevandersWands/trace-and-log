@@ -28,7 +28,7 @@ the code:
 
   const actual = temp;              log.push({actual});
   
-  console.assert(acumul === expected, log);
+  console.assert(actual === expected, log);
 }
 ```
 the values:
