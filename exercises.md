@@ -120,7 +120,7 @@ your notes:
 
 the code:
 ```js
-{ // pytut link -> https://goo.gl/bqsLKG
+{ // pytut link -> https://goo.gl/xX64Cg
   const expected = [];            const log = [{expected}];
                        
   const a = [];                     
@@ -143,34 +143,34 @@ the code:
 ```
 the values:
 ```js
-b:2, c:3         --> ?
-b:0, c:false     --> ?
-b:false, c:9     --> ?
+x:2, y:3         --> ?
+x:0, y:false     --> ?
+x:false, y:9     --> ?
 ```
 your notes:  
 
 ---
 
 
-
-for these the most interesting part is the log. mess up on purpose and see how the logging works
-
-**unhelpful log**
+**yes copy**
 
 the code:
 ```js
-{ // pytut link -> https://goo.gl/bqsLKG
-  const expected = ;             const log = [{expected}];
+{ // pytut link -> https://goo.gl/UCT8Co
+  const expected = [];            const log = [{expected}];
                        
   const a = [];                     
-  let b = ;
-  let c = ;                        log.push({a,b,c});
+  const b = [];                      
+  const x = ;
+  const y = ;                     log.push({a:a.slice(),b:b.slice(),x,y});
   
-  a.push(b);                       log.push(a);
-  a.push(c);                       log.push(a);
-  a.push(b+c);                     log.push(a);
+  a.push(b.slice());              log.push(a.slice());
+  b.push(x);                      log.push(b.slice());
+  a.push(b.slice());              log.push(a.slice());
+  b.push(y);                      log.push(b.slice());
+  a.push(b.slice());              log.push(a.slice());
 
-  const actual = a;                log.push({actual});
+  const actual = a;               log.push({actual:actual.slice()});
   
   const assert_act = JSON.stringify(actual);
   const assert_exp = JSON.stringify(expected);
@@ -179,46 +179,14 @@ the code:
 ```
 the values:
 ```js
-b:2, c:3         --> ?
-b:0, c:false     --> ?
-b:false, c:9     --> ?
+x:2, y:3         --> ?
+x:0, y:false     --> ?
+x:false, y:9     --> ?
 ```
 your notes:  
 
 ---
 
-
-**helpful log**
-
-the code:
-```js
-{ // pytut link -> https://goo.gl/bqsLKG
-  const expected = ;             const log = [{expected}];
-                       
-  const a = [];                     
-  let b = ;
-  let c = ;                        log.push({a:a.slice() ,b,c});
-  
-  a.push(b);                       log.push(a.slice());
-  a.push(c);                       log.push(a.slice());
-  a.push(b+c);                     log.push(a.slice());
-
-  const actual = a;                log.push({actual: actual.slice()});
-  
-  const assert_act = JSON.stringify(actual);
-  const assert_exp = JSON.stringify(expected);
-  console.assert(assert_act === assert_exp, log);
-}
-```
-the values:
-```js
-b:2, c:3         --> ?
-b:0, c:false     --> ?
-b:false, c:9     --> ?
-```
-your notes:  
-
----
 
 ```js
 { // pytut link -> https://goo.gl/o1KP2E
