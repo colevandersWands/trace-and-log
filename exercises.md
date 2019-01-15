@@ -44,7 +44,7 @@ your notes:
 
 ---
 
-**Block Scope**
+**Block Scope 'let'**
 
 the code:
 ```js
@@ -69,10 +69,152 @@ the code:
 }
 ```
 the values:
-```
+```js
 a:1, b:2, c:3         --> ?
 a:'', b:0, c:false    --> ?
 a:true, b:false, c:9  --> ?
+```
+your notes:  
+
+---
+
+**Block Scope 'var'**
+(refresh the page each time before running this exercise)
+
+the code:
+```js
+{ // pytut link -> https://goo.gl/rJaPQo
+  const expected = ;              const log = [{expected}];
+                       
+  let b = ;  
+  let c = ;                       log.push({a,b,c});
+
+  {
+    var a = b;                    log.push({a});
+    {
+       a = c;                     log.push({a});
+    }
+    a = a;                        log.push({a});
+  }
+
+  const actual = a;               log.push({actual});
+  
+  console.assert(actual === expected, log);
+}
+```
+the values:
+```js
+b:2, c:3         --> ?
+b:0, c:false     --> ?
+b:false, c:9     --> ?
+```
+your notes:  
+
+---
+---
+
+## Reference Types
+
+
+**no copy**
+
+the code:
+```js
+{ // pytut link -> https://goo.gl/bqsLKG
+  const expected = [];            const log = [{expected}];
+                       
+  const a = [];                     
+  const b = [];                      
+  const x = ;
+  const y = ;                     log.push({a:a.slice(),b:b.slice(),x,y});
+  
+  a.push(b);                      log.push(a.slice());
+  b.push(x);                      log.push(b.slice());
+  a.push(b);                      log.push(a.slice());
+  b.push(y);                      log.push(b.slice());
+  a.push(b);                      log.push(a.slice());
+
+  const actual = a;               log.push({actual:actual.slice()});
+  
+  const assert_act = JSON.stringify(actual);
+  const assert_exp = JSON.stringify(expected);
+  console.assert(assert_act === assert_exp, log);
+}
+```
+the values:
+```js
+b:2, c:3         --> ?
+b:0, c:false     --> ?
+b:false, c:9     --> ?
+```
+your notes:  
+
+---
+
+
+
+for these the most interesting part is the log. mess up on purpose and see how the logging works
+
+**unhelpful log**
+
+the code:
+```js
+{ // pytut link -> https://goo.gl/bqsLKG
+  const expected = ;             const log = [{expected}];
+                       
+  const a = [];                     
+  let b = ;
+  let c = ;                        log.push({a,b,c});
+  
+  a.push(b);                       log.push(a);
+  a.push(c);                       log.push(a);
+  a.push(b+c);                     log.push(a);
+
+  const actual = a;                log.push({actual});
+  
+  const assert_act = JSON.stringify(actual);
+  const assert_exp = JSON.stringify(expected);
+  console.assert(assert_act === assert_exp, log);
+}
+```
+the values:
+```js
+b:2, c:3         --> ?
+b:0, c:false     --> ?
+b:false, c:9     --> ?
+```
+your notes:  
+
+---
+
+
+**helpful log**
+
+the code:
+```js
+{ // pytut link -> https://goo.gl/bqsLKG
+  const expected = ;             const log = [{expected}];
+                       
+  const a = [];                     
+  let b = ;
+  let c = ;                        log.push({a:a.slice() ,b,c});
+  
+  a.push(b);                       log.push(a.slice());
+  a.push(c);                       log.push(a.slice());
+  a.push(b+c);                     log.push(a.slice());
+
+  const actual = a;                log.push({actual: actual.slice()});
+  
+  const assert_act = JSON.stringify(actual);
+  const assert_exp = JSON.stringify(expected);
+  console.assert(assert_act === assert_exp, log);
+}
+```
+the values:
+```js
+b:2, c:3         --> ?
+b:0, c:false     --> ?
+b:false, c:9     --> ?
 ```
 your notes:  
 
