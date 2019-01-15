@@ -24,11 +24,13 @@ you can complete these exercises directly from your fork by inspecting this page
 ## Variables 
 
 **Value Swap**    
+
+[on pytut](https://goo.gl/27fPqs)  
 [interactive example](https://github.com/elewa-academy/value-swap)  
 
 the code:
 ```js
-{ // pytut link -> https://goo.gl/27fPqs
+{
   const expected = ;                const log = [{expected}];
 
   let a = ;                        
@@ -57,9 +59,11 @@ your notes:
 
 **Block Scope 'let'**
 
+[on pytut](https://goo.gl/Ym63eU)  
+
 the code:
 ```js
-{ // pytut link -> https://goo.gl/Ym63eU
+{
   const expected = ;              const log = [{expected}];
 
   let a = ;                        
@@ -90,12 +94,14 @@ your notes:
 ---
 
 **Block Scope 'var'**  
-(refresh the page each time before running this exercise)  
+
+[on pytut](https://goo.gl/rJaPQo)  
 [interactive example](https://github.com/elewa-academy/hoisting) 
 
 the code:
+(refresh the page each time before running this exercise)  
 ```js
-{ // pytut link -> https://goo.gl/rJaPQo
+{
   const expected = ;              const log = [{expected}];
                        
   let b = ;  
@@ -129,11 +135,13 @@ your notes:
 
 
 **no-copy arrays**  
+
+[on pytut](https://goo.gl/xX64Cg)  
 [more about this](https://github.com/elewa-academy/reference-vs-value)
 
 the code:
 ```js
-{ // pytut link -> https://goo.gl/xX64Cg
+{
   const expected = [];            const log = [{expected}];
                        
   const a = [];                     
@@ -166,11 +174,13 @@ your notes:
 
 
 **yes-copy arrays**  
+
+[on pytut](https://goo.gl/UCT8Co)  
 [more about this](https://github.com/elewa-academy/reference-vs-value)
 
 the code:
 ```js
-{ // pytut link -> https://goo.gl/UCT8Co
+{
   const expected = [];            const log = [{expected}];
                        
   const a = [];                     
@@ -202,11 +212,13 @@ your notes:
 ---
 
 **Dots vs Brackets**  
+
+[on pytut](https://goo.gl/2G6nuu)  
 [extra resource](https://github.com/elewa-academy/variables-and-types/tree/master/dots-vs-brackets) 
 
 the code:
 ```js
-{ // pytut link -> https://goo.gl/2G6nuu
+{
   const expected = [];            const log = [{expected}];
 
   const arr = [];
@@ -243,41 +255,137 @@ your notes:
 ## Conditionals
 
 
-**d**  
+**||, if/else, truthyness**  
+
+[on pytut](https://goo.gl/TgqxaR)
 
 the code:
 ```js
-{ // pytut link -> https://goo.gl/xX64Cg
-  const expected = [];            const log = [{expected}];
+{
+  const expected = ;             const log = [{expected}];
                        
-  const a = [];                     
-  const b = [];                      
-  const x = ;
-  const y = ;                     log.push({a:a.slice(),b:b.slice(),x,y});
+  const a = ;                     
+  const b = ;
+  let x = null;
+  let y = null;                  log.push({a, b, x, y});
   
-  a.push(b);                      log.push(a.slice());
-  b.push(x);                      log.push(b.slice());
-  a.push(b);                      log.push(a.slice());
-  b.push(y);                      log.push(b.slice());
-  a.push(b);                      log.push(a.slice());
-
-  const actual = a;               log.push({actual:actual.slice()});
+  let condition = a || b;        log.push({condition: Boolean(condition) });
+  if (condition) {                 
+    x = b;                       log.push({x});
+    y = a || b;                  log.push({y});
+  } else {
+    x = a;                       log.push({x});
+    y = a || b;                  log.push({y});
+  };
   
-  const assert_act = JSON.stringify(actual);
-  const assert_exp = JSON.stringify(expected);
-  console.assert(assert_act === assert_exp, log);
+  const actual = y;
+  
+  console.assert(actual === expected, log);
 }
 ```
 the values:
 ```js
-x:2, y:3         --> ?
-x:'x', y:'y'     --> ?
-x:null, y:0      --> ?
+a:true, b:false      --> ?
+a:false, b:true      --> ?
+a:0, b:1             --> ?
+a:1, b:0             --> ?
+a:null, b:false      --> ?
+a:false, b:null      --> ?
+a:'', b:' '          --> ?
+a:' ', b:''          --> ?
+a:2, b:3             --> ?
+a:3, b:2             --> ?
 ```
 your notes:  
 
 ---
 
+
+**if, else if, else**  
+
+[on pytut](https://goo.gl/zhTS2m)
+
+the code:
+```js
+{
+  const expected = ;                const log = [{expected}];
+                     
+  const a = ;
+  const b = ;
+  const c = ;
+  const result = null;              log.push({a,b,c,result});
+  
+  const condition_1 = b && a;       log.push({condition_1: !!condition_1});
+  const condition_2 = a || c;       log.push({condition_2: !!condition_2});
+  if (condition_1) {
+    result = condition_1;           log.push({result});
+  } else if (condtion_2) {
+    result = condition_2;           log.push({result});
+  } else {
+    result = 'else';                log.push({result});
+  };
+
+  const actual = result;
+  
+  console.assert(actual === expected, log);
+}
+```
+the values:
+```js
+a:true, b:'', c:1      --> ?
+a:false, b:'', c:0      --> ?
+a:true, b:'', c:0      --> ?
+a:false, b:'', c:1      --> ?
+a:false, b:' ', c:1      --> ?
+a:true, b:' ', c:1      --> ?
+```
+your notes:  
+
+---
+
+
+
+**nested conditionals**  
+
+[on pytut](https://goo.gl/zhTS2m)
+
+the code:
+```js
+{
+  const expected = ;                const log = [{expected}];
+                     
+  const a = ;
+  const b = ;
+  const c = ;
+  const result = null;              log.push({a,b,c,result});
+  
+  const condition_1 = b && a;       log.push({condition_1: !!condition_1});
+  const condition_2 = a || c;       log.push({condition_2: !!condition_2});
+  if (condition_1) {
+    result = condition_1;           log.push({result});
+  } else if (condtion_2) {
+    result = condition_2;           log.push({result});
+  } else {
+    result = 'else';                log.push({result});
+  };
+
+  const actual = result;
+  
+  console.assert(actual === expected, log);
+}
+```
+the values:
+```js
+a:true, b:'', c:1      --> ?
+a:false, b:'', c:0      --> ?
+a:true, b:'', c:0      --> ?
+a:false, b:'', c:1      --> ?
+a:false, b:' ', c:1      --> ?
+a:true, b:' ', c:1      --> ?
+```
+your notes:  
+
+---
 
 ```js
 { // pytut link -> https://goo.gl/o1KP2E
