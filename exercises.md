@@ -210,13 +210,13 @@ the code:
   const a = ;
   const b = ;                     log.push({arr:arr.slice(), obj, a, b})
 
-  arr.push(obj.a); 	              log.push({arr.slice());
-  arr.push(obj.b); 	              log.push({arr.slice());
+  arr.push(obj.a); 	              log.push(arr.slice());
+  arr.push(obj.b); 	              log.push(arr.slice());
 
-  arr.push(obj[a]);	              log.push({arr.slice());
-  arr.push(obj[b]);	              log.push({arr.slice());
+  arr.push(obj[a]);	              log.push(arr.slice());
+  arr.push(obj[b]);	              log.push(arr.slice());
 
-  const actual = arr;             log.push({actual.slice());
+  const actual = arr;             log.push(actual.slice());
   
   const assert_act = JSON.stringify(actual);
   const assert_exp = JSON.stringify(expected);
@@ -239,8 +239,7 @@ your notes:
 ## Conditionals
 
 
-**no-copy arrays**  
-[more about this](https://github.com/elewa-academy/reference-vs-value)
+**d**  
 
 the code:
 ```js
