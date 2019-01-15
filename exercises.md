@@ -10,9 +10,10 @@ you can complete these exercises directly from your fork by inspecting this page
 
 ---
 
-## Variables
+## Variables 
 
-**number 1**
+**number 1**  
+
 the code:
 ```js
 { // pytut link -> https://goo.gl/27fPqs
@@ -41,7 +42,7 @@ the values:
 your notes:
 
 
-
+---
 
 
 
