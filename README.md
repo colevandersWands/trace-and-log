@@ -16,7 +16,14 @@ you can complete these exercises directly from your fork by inspecting this page
     * yes-copy array
     * dots vs brackets
 * [conditionals](#conditionals)  
+    * ||, if/else, truthyness
+    * if, else if, else
+    * nested conditionals
 * [iteration](#iteration)
+    * accumulating
+    * repeating until
+    * once per
+    * breaking down
 
 ---
 ---
@@ -347,7 +354,7 @@ your notes:
 
 **nested conditionals**  
 
-[on pytut](https://goo.gl/zhTS2m)
+[on pytut](https://goo.gl/D9R3HS)
 
 the code:
 ```js
@@ -356,17 +363,20 @@ the code:
                      
   const a = ;
   const b = ;
-  const c = ;
   const result = null;              log.push({a,b,c,result});
   
-  const condition_1 = b && a;       log.push({condition_1: !!condition_1});
-  const condition_2 = a || c;       log.push({condition_2: !!condition_2});
-  if (condition_1) {
-    result = condition_1;           log.push({result});
-  } else if (condtion_2) {
-    result = condition_2;           log.push({result});
+  if (a) {
+    if (b) {
+      result = 'w: ' + a + b;       log.push({result});
+    } else {
+      result = 'x: ' + a + b;       log.push({result});
+    };
   } else {
-    result = 'else';                log.push({result});
+    if (b) {
+      result = 'y: ' + a + b;       log.push({result});
+    } else {
+      result = 'z: ' + a + b;       log.push({result});
+    };
   };
 
   const actual = result;
@@ -376,42 +386,143 @@ the code:
 ```
 the values:
 ```js
-a:true, b:'', c:1      --> ?
-a:false, b:'', c:0      --> ?
-a:true, b:'', c:0      --> ?
-a:false, b:'', c:1      --> ?
-a:false, b:' ', c:1      --> ?
-a:true, b:' ', c:1      --> ?
+a:0, b:0    -->  ?
+a:0, b:1    -->  ?
+a:1, b:0    -->  ?
+a:1, b:1    -->  ?
+```
+your notes:  
+
+---
+---
+
+
+## Iteration
+
+**accumulating**  
+
+[on pytut](https://goo.gl/YFn6Zd)
+
+the code:
+```js
+{
+  const expected = ;                const log = [{expected}];
+             
+  const things = ;
+  let result = null;                log.push({things,result});
+             
+  let i = 0;                        log.push({i});
+  while (i < things.length) {       log.push({while_condition: i < things.length});
+    result += things[i];            log.push({result});
+    ++i;                            log.push({i});
+  };
+
+  const actual = result;
+  
+  console.assert(actual === expected, log);
+}
+```
+the values:
+```js
+[-1, 0, 1]            --> ?
+[-3, -2, -1]          --> ?
+[true, false, 1, 0]   --> ?
+['words', 5, 1e3]     --> ?
+[]                    --> ?
 ```
 your notes:  
 
 ---
 
+**repeating until**  
+
+[on pytut](https://goo.gl/jbvs2o)
+
+the code:
 ```js
-{ // pytut link -> https://goo.gl/o1KP2E
-  const expected = ;                      const log = [{expected}]
+{
+  const expected = ;             const log = [{expected}];
+                     
+  let a = ;
+  let b = ;
+  const c = ;
+  let steps = 0;                 log.push({a,b,c,steps});
+  
+  while (a !== b) {              log.push({while_condition: !!(a !== b)});
+    a -= c;                      log.push({a});
+    b += c;                      log.push({b});
+    steps++;                     log.push({steps});
+  };
 
-  let acumul = ;             
-  let stepper = ;                        log.push({acumul, stepper});
-    
-  while (stepper < 3) {                   log.push({while_condition: stepper<3});
-    const two_times_step = stepper * 2;   log.push({two_times_step})
-    acumul += two_times_step;             log.push({acumul});
-    stepper++;                            log.push({stepper});
-  }
-
-  const actual = acumul;                  log.push({actual})
+  const actual = steps;
   
   console.assert(actual === expected, log);
 }
 ```
+the values:
+```js
+a:10, b:0, c:2      --> ?
 ```
-    acumul = 3, stepper = -1 --> ?
-    acumul = 2, stepper = 0  --> ?
-    acumul = 1, stepper = 1  --> ?
-    acumul = 0, stepper = 2  --> ?
-    acumul = -1, stepper = 3 --> ?
+your notes:  
+
+---
+
+**once per**  
+
+[on pytut](https://goo.gl/D9R3HS)
+
+the code:
+```js
+{
+  const expected = ;                const log = [{expected}];
+                     
+  const a = ;
+  const b = ;
+  const result = null;              log.push({a,b,c,result});
+
+
+  const actual = result;
+  
+  console.assert(actual === expected, log);
+}
 ```
+the values:
+```js
+
+```
+your notes:  
+
+---
+
+**breaking down**  
+
+[on pytut](https://goo.gl/D9R3HS)
+
+the code:
+```js
+{
+  const expected = ;                const log = [{expected}];
+                     
+  const a = ;
+  const b = ;
+  const result = null;              log.push({a,b,c,result});
+
+
+  const actual = result;
+  
+  console.assert(actual === expected, log);
+}
+```
+the values:
+```js
+
+```
+your notes:  
+
+---
+
+_the end_
+
 ___
 ___
 ### <a href="http://janke-learning.org" target="_blank"><img src="https://user-images.githubusercontent.com/18554853/50098409-22575780-021c-11e9-99e1-962787adaded.png" width="40" height="40"></img> Janke Learning</a>
