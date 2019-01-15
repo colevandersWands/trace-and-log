@@ -67,6 +67,7 @@ your notes:
 **Block Scope 'let'**
 
 [on pytut](https://goo.gl/Ym63eU)  
+[interactive example](https://github.com/elewa-academy/nesting-blocks-let)  
 
 the code:
 ```js
@@ -103,7 +104,10 @@ your notes:
 **Block Scope 'var'**  
 
 [on pytut](https://goo.gl/rJaPQo)  
-[interactive example](https://github.com/elewa-academy/hoisting) 
+[hoisting](https://github.com/elewa-academy/hoisting) 
+[hoisting & blocks](https://github.com/elewa-academy/hoisting-and-blocks)
+[let vs var](https://github.com/elewa-academy/block-scope-let-vs-var)  
+
 
 the code:
 (refresh the page each time before running this exercise)  
