@@ -9,3 +9,5 @@ exercise:
 * study many logs with many values
 * practice using the same design pattern over and over
 * take some good notes
+
+[the exercises](./exercises.md)
