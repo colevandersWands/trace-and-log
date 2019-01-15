@@ -22,7 +22,7 @@ you can complete these exercises directly from your fork by inspecting this page
 * [iteration](#iteration)
     * accumulating
     * repeating until
-    * once per
+    * once per thing
     * breaking down
 
 ---
@@ -424,11 +424,11 @@ the code:
 ```
 the values:
 ```js
-[-1, 0, 1]            --> ?
-[-3, -2, -1]          --> ?
-[true, false, 1, 0]   --> ?
-['words', 5, 1e3]     --> ?
-[]                    --> ?
+things:[-1, 0, 1]            --> ?
+things:[-3, -2, -1]          --> ?
+things:[true, false, 1, 0]   --> ?
+things:['words', 5, 1e3]     --> ?
+things:[]                    --> ?
 ```
 your notes:  
 
@@ -461,34 +461,51 @@ the code:
 ```
 the values:
 ```js
-a:10, b:0, c:2      --> ?
+a:10, b:0, c:1      --> ?
+a:8, b:2, c:1       --> ?
+a:7, b:5, c:1       --> ?
+a:13, b:1, c:3      --> ?
+a:0, b:-28, c:7     --> ?
+a:15, b:-9, c:3     --> ?
 ```
 your notes:  
 
 ---
 
-**once per**  
+**once per thing**  
 
-[on pytut](https://goo.gl/D9R3HS)
+[on pytut](https://goo.gl/Gbtsu9)
 
 the code:
 ```js
 {
-  const expected = ;                const log = [{expected}];
+  const expected = ;                   const log = [{expected}];
                      
-  const a = ;
-  const b = ;
-  const result = null;              log.push({a,b,c,result});
-
-
-  const actual = result;
+  const things = ;
+  const result = [];                   log.push({things,result:result.slice()});       
   
-  console.assert(actual === expected, log);
+  let i = 0;                           log.push({i});
+  while (i < things.length) {          log.push({while_condition: i < things.length});
+    const new_thing = !things[i];      log.push({new_thing});
+    result.push(new_thing);            log.push({result:result.slice()});
+    i += 1;                            log.push({i});
+  };
+  
+  const actual = result;
+
+  const assert_act = JSON.stringify(actual);
+  const assert_exp = JSON.stringify(expected);
+  console.assert(assert_act === assert_exp, log);
 }
 ```
 the values:
 ```js
-
+things:[false,true]     --> ?
+things:[0,1]            --> ?
+things:['',' ']         --> ?
+things:[Infinity,NaN]   --> ?
+things:[[],{}]          --> ?
+things:[[1],{1}]        --> ?
 ```
 your notes:  
 
