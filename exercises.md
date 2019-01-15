@@ -15,12 +15,30 @@ you can complete these exercises directly from your fork by inspecting this page
 **number 1**
 the code:
 ```js
+{ // pytut link -> https://goo.gl/27fPqs
+  const expected = ;                const log = [{expected}];
 
+  let a = ;                        
+  let b = ;                        
+  let temp = ;                      log.push({a,b,temp});
+   
+  temp = b;                         log.push({temp});
+  b = a;                            log.push({b});
+  a = temp;                         log.push({a});
+
+  const actual = temp;              log.push({actual});
+  
+  console.assert(acumul === expected, log);
+}
 ```
 the values:
 ```
+{a:1, b:2, temp:3}            --> ?
+{a:'a', b:'b', temp:'temp'}   --> ?
+{a:true, b:false, temp:null}  --> ?
+{a:'', b:0, temp:undefined}   --> ?
 ```
-your notes
+your notes:
 
 
 
@@ -42,21 +60,16 @@ your notes
 
   const actual = acumul;                  log.push({actual})
   
-  console.assert(acumul === expected, log);
+  console.assert(actual === expected, log);
 }
-
-    acumul = 3, stepper = -1
-    acumul = 2, stepper = 0
-    acumul = 1, stepper = 1
-    acumul = 0, stepper = 2
-    acumul = -1, stepper = 3
-  */
-
-{
-  const expected = 
-}
-
-
+```
+```
+    acumul = 3, stepper = -1 --> ?
+    acumul = 2, stepper = 0  --> ?
+    acumul = 1, stepper = 1  --> ?
+    acumul = 0, stepper = 2  --> ?
+    acumul = -1, stepper = 3 --> ?
+```
 ___
 ___
 ### <a href="http://janke-learning.org" target="_blank"><img src="https://user-images.githubusercontent.com/18554853/50098409-22575780-021c-11e9-99e1-962787adaded.png" width="40" height="40"></img> Janke Learning</a>
