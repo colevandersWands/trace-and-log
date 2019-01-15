@@ -513,26 +513,37 @@ your notes:
 
 **breaking down**  
 
-[on pytut](https://goo.gl/D9R3HS)
+[on pytut](https://goo.gl/iupw2c)
 
 the code:
 ```js
 {
   const expected = ;                const log = [{expected}];
                      
-  const a = ;
-  const b = ;
-  const result = null;              log.push({a,b,c,result});
+  const word = ;
+  const letters = [];               log.push({word,letters});
 
+  let i = 0;                        log.push({i});
+  while (i < word.length) {         log.push({while_condition: i < word.length });
+    const letter = word[i];         log.push({letter});
+    letters.push(letter);           log.push({letters:letters.slice()});
+    i = i + 1;                      log.push({i});
+  };
 
-  const actual = result;
-  
-  console.assert(actual === expected, log);
+  const actual = letters;
+ 
+  const assert_act = JSON.stringify(actual);
+  const assert_exp = JSON.stringify(expected);
+  console.assert(assert_act === assert_exp, log);
 }
 ```
 the values:
 ```js
-
+word:"word"       --> ?
+word:""           --> ?
+word:"\n\t"       --> ?
+word:"\e\\"       --> ?
+word:"3.5"        --> ?
 ```
 your notes:  
 
