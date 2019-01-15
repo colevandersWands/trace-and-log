@@ -1,6 +1,7 @@
 learning objectives:
 * tracing code in pytut
 * logging & tracing code in chromedev
+* understanding code as a series of values stored in variables
 
 exercise:
 * given a snippet of code
