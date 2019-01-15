@@ -180,7 +180,7 @@ the code:
   b.push(y);                      log.push(b.slice());
   a.push(b.slice());              log.push(a.slice());
 
-  const actual = a;               log.push({actual:actual.slice()});
+  const actual = a;               log.push(actual.slice());
   
   const assert_act = JSON.stringify(actual);
   const assert_exp = JSON.stringify(expected);
