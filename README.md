@@ -487,7 +487,7 @@ the code:
   let i = 0;                           log.push({i});
   while (i < things.length) {          log.push({while_condition: i < things.length});
     const new_thing = !things[i];      log.push({new_thing});
-    result.push(new_thing);            log.push({result:result.slice()});
+    result.push(new_thing);            log.push(result.slice());
     i += 1;                            log.push({i});
   };
   
@@ -526,7 +526,7 @@ the code:
   let i = 0;                        log.push({i});
   while (i < word.length) {         log.push({while_condition: i < word.length });
     const letter = word[i];         log.push({letter});
-    letters.push(letter);           log.push({letters:letters.slice()});
+    letters.push(letter);           log.push(letters.slice());
     i = i + 1;                      log.push({i});
   };
 
