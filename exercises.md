@@ -9,10 +9,11 @@ you can complete these exercises directly from your fork by inspecting this page
 * [iteration](#iteration)
 
 ---
+---
 
 ## Variables 
 
-**number 1**  
+**Variable Swap**  
 
 the code:
 ```js
@@ -33,18 +34,49 @@ the code:
 }
 ```
 the values:
-```
-{a:1, b:2, temp:3}            --> ?
-{a:'a', b:'b', temp:'temp'}   --> ?
-{a:true, b:false, temp:null}  --> ?
-{a:'', b:0, temp:undefined}   --> ?
+```js
+a:1, b:2, temp:3            --> ?
+a:'a', b:'b', temp:'temp'   --> ?
+a:true, b:false, temp:null  --> ?
+a:'', b:0, temp:undefined   --> ?
 ```
 your notes:
 
-
 ---
 
+**Block Scope**
 
+the code:
+```js
+{ // pytut link -> https://goo.gl/Ym63eU
+  const expected = ;              const log = [{expected}];
+
+  let a = ;                        
+  let b = ;  
+  let c = ;                       log.push({a,b,c});
+
+  {
+    let a = b;                    log.push({a});
+    {
+       a = c;                     log.push({a});
+    }
+    a = a;                        log.push({a});
+  }
+
+  const actual = a;               log.push({actual});
+  
+  console.assert(actual === expected, log);
+}
+```
+the values:
+```
+a:1, b:2, c:3         --> ?
+a:'', b:0, c:false    --> ?
+a:true, b:false, c:9  --> ?
+```
+your notes:  
+
+---
 
 ```js
 { // pytut link -> https://goo.gl/o1KP2E
