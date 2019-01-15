@@ -253,7 +253,7 @@ the code:
 the values:
 ```js
 a:'a', b:'b'      --> ?
-a:'a', b:'a'      --> ?
+a:'b', b:'a'      --> ?
 a:1, b:2          --> ?
 a:2, b:1          --> ?
 ```
