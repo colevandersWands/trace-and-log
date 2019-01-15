@@ -116,7 +116,7 @@ your notes:
 ## Reference Types
 
 
-**no copy**
+**no-copy arrays**
 
 the code:
 ```js
@@ -144,15 +144,15 @@ the code:
 the values:
 ```js
 x:2, y:3         --> ?
-x:0, y:false     --> ?
-x:false, y:9     --> ?
+x:'x', y:'y'     --> ?
+x:null, y:0      --> ?
 ```
 your notes:  
 
 ---
 
 
-**yes copy**
+**yes-copy arrays**
 
 the code:
 ```js
@@ -180,8 +180,8 @@ the code:
 the values:
 ```js
 x:2, y:3         --> ?
-x:0, y:false     --> ?
-x:false, y:9     --> ?
+x:'x', y:'y'     --> ?
+x:null, y:0      --> ?
 ```
 your notes:  
 
